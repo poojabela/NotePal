@@ -43,14 +43,15 @@ const Home = () => {
 
     return ( 
         <div className="p-4 grow">
-            <div className="grid grid-cols-4 gap-2 items-center">
+            <div className="grid grid-cols-1 gap-2 items-center md:grid-cols-2 lg:grid-cols-4">
               {notesToShow.map(note => (
                 <div key={note.id} onClick={() => popUp(note)}>
                     <Card title={note.title} tagline={note.tagline} body={note.body} pinned={note.pinned}/>
                 </div>
               ))}
             </div>
-            {notesToShow.length == 1 && <div className="buttons flex justify-center mt-5">
+            {notesToShow.length >= 1 && 
+            <div className="buttons flex justify-center mt-5">
               <button 
               onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}
               className="p-1 text-[#ff5e32] border-[2px] border-[#ff5e32] bg-[#ecb44c] disabled:bg-[rgba(255,94,50,0.2)]"
