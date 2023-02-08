@@ -51,7 +51,7 @@ const Home = () => {
               ))}
             </div>
             {notesToShow.length >= 1 && 
-            <div className="buttons flex justify-center mt-5 items-center">
+            <div className="buttons flex justify-center mt-5 items-center p-3">
               <button 
               onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}
               className="bg-[#a855f7cc] p-2 rounded-sm mr-2"
