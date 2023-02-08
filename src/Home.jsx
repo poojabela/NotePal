@@ -42,26 +42,26 @@ const Home = () => {
     const notesToShow = [...pinned, ...unpinned].slice(firstPage, lastPage)
 
     return ( 
-        <div className="p-4 grow">
-            <div className="grid grid-cols-1 gap-2 items-center md:grid-cols-2 lg:grid-cols-4">
+        <div className="pt-20">
+            <div className="grid grid-cols-1 gap-4 px-5 sm:grid-cols-2 lg:grid-cols-3">
               {notesToShow.map(note => (
-                <div key={note.id} onClick={() => popUp(note)}>
+                <div key={note.id} onClick={() => popUp(note)} className="">
                     <Card title={note.title} tagline={note.tagline} body={note.body} pinned={note.pinned}/>
                 </div>
               ))}
             </div>
             {notesToShow.length >= 1 && 
-            <div className="buttons flex justify-center mt-5">
+            <div className="buttons flex justify-center mt-5 items-center">
               <button 
               onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}
-              className="p-1 text-[#ff5e32] border-[2px] border-[#ff5e32] bg-[#ecb44c] disabled:bg-[rgba(255,94,50,0.2)]"
+              className="bg-[#a855f7cc] p-2 rounded-sm mr-2"
               >
                   Prev
               </button>
               <span className="p-1">{currentPage}</span>
               <button 
               onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === Math.ceil(notes.length / maxData)}
-              className="p-1 text-[#008080] border-[2px] border-[#008080] bg-[#30f5f5] disabled:bg-[rgba(0,128,128,0.2)]"
+              className="bg-[#fb7185cc] p-2 rounded-sm"
               >
                   Next
               </button>
